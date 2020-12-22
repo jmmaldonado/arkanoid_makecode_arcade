@@ -28,6 +28,16 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, ot
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.brick, function (sprite, otherSprite) {
     info.changeScoreBy(1)
+    if (sprite.y > otherSprite.y) {
+        direccion_y = 1
+    } else {
+        direccion_y = -1
+    }
+    if (sprite.x > otherSprite.x) {
+        direccion_x = 1
+    } else {
+        direccion_x = -1
+    }
     otherSprite.destroy()
 })
 function sacar_bola () {
@@ -63,9 +73,9 @@ let columnas = 7
 construir_muro(filas, columnas)
 info.setLife(3)
 info.setScore(0)
-controller.moveSprite(nave, 400, 0)
+controller.moveSprite(nave, 100, 0)
 sacar_bola()
-game.onUpdateInterval(100, function () {
+game.onUpdateInterval(25, function () {
     bola.x += direccion_x
     bola.y += direccion_y
     if (bola.y >= scene.screenHeight()) {

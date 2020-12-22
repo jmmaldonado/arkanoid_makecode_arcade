@@ -78,7 +78,7 @@ sacar_bola()
 game.onUpdateInterval(25, function () {
     bola.x += direccion_x
     bola.y += direccion_y
-    if (bola.y >= scene.screenHeight()) {
+    if (bola.y >= 110) {
         info.changeLifeBy(-1)
         if (info.life() == 0) {
             game.over(false)
@@ -86,13 +86,13 @@ game.onUpdateInterval(25, function () {
             sacar_bola()
         }
     }
-    if (bola.y == 2) {
+    if (bola.y <= 2) {
         direccion_y = 1
     }
-    if (bola.x == scene.screenWidth() - 2) {
+    if (bola.x >= scene.screenWidth() - 2) {
         direccion_x = -1
     }
-    if (bola.x == 2) {
+    if (bola.x <= 2) {
         direccion_x = 1
     }
 })

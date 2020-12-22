@@ -1,1 +1,9 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="KJrc7%qTCwhIew%G~UyQ" x="0" y="0"/></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="KJrc7%qTCwhIew%G~UyQ" x="-10" y="-10"/><block type="screen_image_picker" id="K-)015dui=dR+2y7k)vx" disabled="true" x="250" y="510"><field name="img">img`
+. . c c c c b b b b b b b b b b b b c c c c . . 
+. c c c c c b b b b b 1 b b b 1 b b c c c c c . 
+c 1 c c c c 1 1 b 1 1 1 1 1 1 b 1 1 c c c c 1 c 
+c c 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 c c 
+c 1 c c c c 1 1 b 1 1 1 1 1 1 b 1 1 c c c c 1 c 
+. c c c c c b b 1 b b 1 b b b b b b c c c c c . 
+. . c c c c b b b b b b b b b b b b c c c c . . 
+`</field></block></xml>

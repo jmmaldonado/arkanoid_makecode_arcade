@@ -18,9 +18,31 @@ function construir_muro (filas: number, columnas: number) {
         }
     }
 }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player, function (sprite, otherSprite) {
+    direccion_y = -1
+    if (bola.x < nave.x + 0) {
+        direccion_x = -1
+    } else {
+        direccion_x = 1
+    }
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.brick, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    otherSprite.destroy()
+})
+function sacar_bola () {
+    direccion_y = 1
+    direccion_x = randint(-1, 1)
+    bola.y = 70
+    bola.x = 80
+}
+let direccion_x = 0
+let direccion_y = 0
 let ladrillo: Sprite = null
+let bola: Sprite = null
+let nave: Sprite = null
 scene.setBackgroundColor(1)
-let nave = sprites.create(img`
+nave = sprites.create(img`
     . . c c c c b b b b b b b b b b b b c c c c . . 
     . c c c c c b b b b b 1 b b b 1 b b c c c c c . 
     c 1 c c c c 1 1 b 1 1 1 1 1 1 b 1 1 c c c c 1 c 
@@ -29,11 +51,38 @@ let nave = sprites.create(img`
     . c c c c c b b 1 b b 1 b b b b b b c c c c c . 
     . . c c c c b b b b b b b b b b b b c c c c . . 
     `, SpriteKind.Player)
-let bola = sprites.create(img`
+bola = sprites.create(img`
     . f f . 
     f 1 1 f 
     f 1 1 f 
     . f f . 
     `, SpriteKind.Projectile)
 nave.y = 110
-construir_muro(4, 7)
+let filas = 4
+let columnas = 7
+construir_muro(filas, columnas)
+info.setLife(3)
+info.setScore(0)
+controller.moveSprite(nave, 400, 0)
+sacar_bola()
+game.onUpdateInterval(100, function () {
+    bola.x += direccion_x
+    bola.y += direccion_y
+    if (bola.y >= scene.screenHeight()) {
+        info.changeLifeBy(-1)
+        if (info.life() == 0) {
+            game.over(false)
+        } else {
+            sacar_bola()
+        }
+    }
+    if (bola.y == 2) {
+        direccion_y = 1
+    }
+    if (bola.x == scene.screenWidth() - 2) {
+        direccion_x = -1
+    }
+    if (bola.x == 2) {
+        direccion_x = 1
+    }
+})

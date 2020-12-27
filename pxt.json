@@ -1,5 +1,5 @@
 {
-    "name": "Arkanoid",
+    "name": "arkanoid_makecode_arcade",
     "description": "",
     "dependencies": {
         "device": "*"

@@ -88,6 +88,9 @@ sacar_bola()
 game.onUpdateInterval(25, function () {
     bola.x += direccion_x
     bola.y += direccion_y
+    if (info.score() == (filas + 1) * (columnas + 1)) {
+        game.over(true)
+    }
     if (bola.y >= 110) {
         info.changeLifeBy(-1)
         if (info.life() == 0) {

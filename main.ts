@@ -32,20 +32,20 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.brick, function (sprite, oth
         game.over(true)
     }
     if (sprite.y > otherSprite.y) {
-        direccion_y = 0.7
+        direccion_y = 1
     } else {
-        direccion_y = -0.7
+        direccion_y = -1
     }
     if (sprite.x > otherSprite.x) {
-        direccion_x = 0.7
+        direccion_x = 1
     } else {
-        direccion_x = -0.7
+        direccion_x = -1
     }
     otherSprite.destroy()
 })
 function sacar_bola () {
     direccion_y = 1
-    direccion_x = randint(-1, 1)
+    direccion_x = 1
     bola.y = 70
     bola.x = 80
 }
@@ -102,12 +102,12 @@ game.onUpdate(function () {
         }
     }
     if (bola.y <= 2) {
-        direccion_y = 0.7
+        direccion_y = 1
     }
     if (bola.x >= scene.screenWidth() - 2) {
-        direccion_x = -0.7
+        direccion_x = -1
     }
     if (bola.x <= 2) {
-        direccion_x = 0.7
+        direccion_x = 1
     }
 })

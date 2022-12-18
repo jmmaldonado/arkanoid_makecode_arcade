@@ -1,5 +1,5 @@
 {
-    "name": "arkanoid_makecode_arcade",
+    "name": "arkanoid-analog-control",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -15,7 +15,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.2.16",
+        "target": "1.11.37",
         "targetId": "arcade"
     },
     "supportedTargets": [

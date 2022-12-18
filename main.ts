@@ -57,16 +57,7 @@ let filas = 0
 let bola: Sprite = null
 let nave: Sprite = null
 scene.setBackgroundColor(1)
-tiles.setTilemap(tiles.createTilemap(hex`0a0008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    . . . . . . . . . . 
-    `, [myTiles.transparency16], TileScale.Sixteen))
+tiles.setTilemap(tilemap`level1`)
 nave = sprites.create(img`
     . . c c c c b b b b b b b b b b b b c c c c . . 
     . c c c c c b b b b b 1 b b b 1 b b c c c c c . 

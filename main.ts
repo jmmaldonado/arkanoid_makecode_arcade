@@ -48,6 +48,8 @@ function sacar_bola () {
     direccion_x = 1
     bola.y = 70
     bola.x = 80
+    bola.vx = Math.map(pins.P2.analogRead(), 0, 1023, 5, 20)
+    bola.vy = Math.map(pins.P2.analogRead(), 0, 1023, 5, 20)
 }
 let direccion_x = 0
 let direccion_y = 0
@@ -56,6 +58,7 @@ let columnas = 0
 let filas = 0
 let bola: Sprite = null
 let nave: Sprite = null
+let speed_modifier = 1
 scene.setBackgroundColor(1)
 tiles.setTilemap(tilemap`level1`)
 nave = sprites.create(img`
@@ -82,8 +85,12 @@ info.setScore(0)
 controller.moveSprite(nave, 100, 0)
 sacar_bola()
 game.onUpdate(function () {
-    bola.x += direccion_x
-    bola.y += direccion_y
+    speed_modifier = Math.map(pins.P2.analogRead(), 0, 1023, 1, 10)
+    bola.vx = direccion_x * Math.map(pins.P2.analogRead(), 0, 1023, 5, 20)
+    bola.vy = direccion_y * Math.map(pins.P2.analogRead(), 0, 1023, 5, 20)
+    nave.x = Math.map(pins.P1.analogRead(), 0, 1023, 0, 160)
+    bola.x += direccion_x * speed_modifier
+    bola.y += direccion_y * speed_modifier
     if (bola.y >= 110) {
         info.changeLifeBy(-1)
         if (info.life() == 0) {

@@ -2,7 +2,8 @@
     "name": "arkanoid-analog-control",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "edge-connector": "*"
     },
     "files": [
         "main.blocks",
